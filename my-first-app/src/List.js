@@ -32,7 +32,7 @@ class List extends React.Component {
 
                 <h4>Psst! Wanna know my personal choice of coffee?</h4>
                 <button onClick={this.personalChoiceClick}>Click here!</button>
-                <p hidden={this.state.personalChoice == ""}>{this.state.personalChoice}! Can you spell it? It's {[...this.state.personalChoice].map(i => <span>{i} </span>)}</p>
+                <p hidden={this.state.personalChoice === ""}>{this.state.personalChoice}! Can you spell it? It's {[...this.state.personalChoice].map(i => <span>{i} </span>)}</p>
             </div>
         );
     }
