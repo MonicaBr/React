@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Select from './Select';
+import List from './t2/List';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Select />
+    <List />
   </React.StrictMode>,
   document.getElementById('root')
 );

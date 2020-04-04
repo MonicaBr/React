@@ -1,0 +1,11 @@
+.toggled-details-container {
+    display: flex;
+}
+
+.cocktail-details {
+    float: right
+}
+
+.toggled-details-img {
+    float: left;
+}
