@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import List from './t2/List';
+import CocktailHome from './t2/homepage/CocktailHome';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <List />
+    <CocktailHome />
   </React.StrictMode>,
   document.getElementById('root')
 );
