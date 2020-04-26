@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
 import Alcoholic from './cocktails/Alcoholic';
 import NonAlcoholic from './cocktails/NonAlcoholic';
@@ -19,13 +19,14 @@ class CocktailHome extends React.Component {
                     <CocktailMenu />
 
                     <Switch>
+                        <Route exact path="/" component={List} />
                         <Route path="/cocktails/:cocktailId" component={CocktailDetails}></Route>
                         <Route path="/alcoholic" component={Alcoholic} />
                         <Route path="/non-alcoholic" component={NonAlcoholic} />
                         <Route path="/ordinary" component={Ordinary} />
                         <Route path="/glasses" component={Glass} />
                         <Route path="/champagne-flute" component={ChampagneFlute} />
-                        <Route path="/" component={List} />
+                        <Route path="*" render={() => <Redirect to={{pathname: "/"}} />} />                        
                     </Switch>
                 </BrowserRouter>
             </div>
