@@ -1,33 +1,35 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './List.css';
 import ListItem from '../ListItem';
 
-class List extends React.Component {
-
-    render() {
-        if(this.props.cocktails == null) {
-            return (
-                <div></div>
-            )
-        }
-
+export default function List(props) {
+    if(props.cocktails == null) {
         return (
-            <div className="list-container">
-                {/* <CocktailToggleDetails 
-                    hidden={!this.state.showToggleDetails} 
-                    cocktail={this.state.currentCocktailSelected} 
-                    onHideDetailsClick={this.onHideDetailsClick}/> */}
-
-                {this.props.cocktails.map(c => 
-                    <ListItem cocktail={c} 
-                        backUrl={"/" + this.props.cocktailType} 
-                        key={c.idDrink} />
-                )}
-            </div>
+            <div></div>
         )
     }
+
+    return (
+        <div className="list-container">
+            {/* <CocktailToggleDetails 
+                hidden={!this.state.showToggleDetails} 
+                cocktail={this.state.currentCocktailSelected} 
+                onHideDetailsClick={this.onHideDetailsClick}/> */}
+
+            <Link to={{ 
+                pathname: "/add-cocktail",
+                state: {
+                    backUrl: `/${props.cocktailType}`
+                }
+            }}><button>Add cocktail</button></Link>
+
+            {props.cocktails.map(c => 
+                <ListItem cocktail={c} 
+                    backUrl={"/" + props.cocktailType} 
+                    key={c.idDrink} />
+            )}
+        </div>
+    )
 }
-
-export default List;
-

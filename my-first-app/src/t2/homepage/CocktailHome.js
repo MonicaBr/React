@@ -9,29 +9,27 @@ import ChampagneFlute from './cocktails/ChampagneFlute';
 import List from './list/List';
 import CocktailMenu from './CocktailMenu';
 import CocktailDetails from '../details/CocktailDetails';
+import AddCocktailForm from '../add-cocktail/AddCocktailForm';
 
-class CocktailHome extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>Cocktails!</h1>
-                <BrowserRouter>    
-                    <CocktailMenu />
+export default function CocktailHome() {
+    return (
+        <div>
+            <h1>Cocktails!</h1>
+            <BrowserRouter>    
+                <CocktailMenu />
 
-                    <Switch>
-                        <Route exact path="/" component={List} />
-                        <Route path="/cocktails/:cocktailId" component={CocktailDetails}></Route>
-                        <Route path="/alcoholic" component={Alcoholic} />
-                        <Route path="/non-alcoholic" component={NonAlcoholic} />
-                        <Route path="/ordinary" component={Ordinary} />
-                        <Route path="/glasses" component={Glass} />
-                        <Route path="/champagne-flute" component={ChampagneFlute} />
-                        <Route path="*" render={() => <Redirect to={{pathname: "/"}} />} />                        
-                    </Switch>
-                </BrowserRouter>
-            </div>
-        )
-    }
+                <Switch>
+                    <Route exact path="/" component={List} />
+                    <Route path="/cocktails/:cocktailId" component={CocktailDetails}></Route>
+                    <Route path="/alcoholic" component={Alcoholic} />
+                    <Route path="/non-alcoholic" component={NonAlcoholic} />
+                    <Route path="/ordinary" component={Ordinary} />
+                    <Route path="/glasses" component={Glass} />
+                    <Route path="/champagne-flute" component={ChampagneFlute} />
+                    <Route path="/add-cocktail" component={AddCocktailForm} />
+                    <Route path="*" render={() => <Redirect to={{pathname: "/"}} />} />                        
+                </Switch>
+            </BrowserRouter>
+        </div>
+    )
 }
-
-export default CocktailHome;

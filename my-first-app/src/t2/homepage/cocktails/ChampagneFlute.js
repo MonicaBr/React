@@ -1,29 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import List from '../list/List';
 
-class ChampagneFlute extends React.Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            cocktailChampagneFlutes: []
-        }
-    }
+export default function ChampagneFlute() {
+    const [cocktails, setCocktails] = useState([]);
 
-    componentDidMount() {
-        axios.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Champagne_flute")
-            .then(r => this.setState({cocktailChampagneFlutes: r.data.drinks}));
-    }
+    useEffect (
+        () => {
+            axios.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Champagne_flute")
+            .then(r => setCocktails(r.data.drinks));
+        }, []);
 
-    render() {
-        return (
-            <div>
-                <h3>Champagne flutes</h3> 
-                <List cocktails={this.state.cocktailChampagneFlutes} cocktailType="champagne-flute"></List>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <h3>Champagne flutes</h3> 
+            <List cocktails={cocktails} cocktailType="champagne-flute"></List>
+        </div>
+    )
 }
-
-export default ChampagneFlute;
